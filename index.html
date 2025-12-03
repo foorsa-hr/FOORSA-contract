@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Opportunity Solutions - Contract</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Cairo', 'sans-serif'],
+              signature: ['"Aref Ruqaa"', 'serif'],
+            },
+            colors: {
+              brand: {
+                beige: '#EACA91',
+                navy: '#041228',
+                grey: '#DDDDDD',
+                blue: '#19427D',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Base Document Styles */
+      body {
+        background-color: #525659;
+      }
+      
+      .document-container {
+        width: 297mm;
+        margin: 0 auto;
+        /* Mobile adjustment: ensure it doesn't shrink, stays scrollable or scaled */
+        min-width: 297mm;
+      }
+
+      .document-page {
+        background-color: white;
+        width: 297mm;
+        height: 210mm; /* A4 Landscape */
+        position: relative;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        page-break-after: always;
+      }
+
+      .document-page:last-child {
+        margin-bottom: 0;
+        page-break-after: avoid;
+      }
+
+      /* Print Specifics */
+      @media print {
+        @page {
+          size: A4 landscape;
+          margin: 0;
+        }
+        body {
+          background-color: white;
+          margin: 0;
+          -webkit-print-color-adjust: exact;
+        }
+        .document-container {
+          width: 297mm;
+          min-width: 297mm;
+          margin: 0;
+        }
+        .document-page {
+          box-shadow: none;
+          margin: 0;
+          page-break-after: always;
+          width: 297mm;
+          height: 209.5mm; /* Slightly less than 210mm to prevent spillover */
+          overflow: hidden;
+        }
+        .no-print {
+          display: none !important;
+        }
+        .article-columns {
+          column-count: 3 !important;
+          column-gap: 2rem !important;
+          display: block !important;
+        }
+      }
+
+      /* HTML2PDF Generation Helpers */
+      .pdf-generating {
+        background-color: white !important;
+        width: 297mm !important; 
+        min-width: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      
+      .pdf-generating .document-page {
+        margin: 0 !important;
+        box-shadow: none !important;
+        /* Critical fix for blank pages: slightly reduce height to fit A4 strict limit */
+        height: 209.5mm !important; 
+        width: 297mm !important;
+        page-break-after: always;
+        overflow: hidden !important;
+      }
+
+      .pdf-generating .no-print {
+        display: none !important;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
